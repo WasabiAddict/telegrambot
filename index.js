@@ -55,7 +55,7 @@ bot.help((ctx) => {
 
 
 // Set up a timer to check for new videos every 5 minutes
-setInterval(checkForNewVideos, 60000);
+setInterval(checkForNewVideos, 300000);
 
 
 // Command to get the latest video for Crowbcat
