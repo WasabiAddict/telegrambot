@@ -3,10 +3,11 @@ const bot = new Telegraf('6890819714:AAG_0zFaUTA9ulO2RByCYFTIyBEuLmP7yig');
 const axios = require('axios');
 
 const youtubeApiKey = 'AIzaSyBWsykHM21DZXMa3ZS0pH9rCVa1ds3Ut4c';
-//crowbcat, JCS channel Ids
+//crowbcat, JCS, destiny channel Ids
 const channelIds = ['UCYZtp0YIxYOipX15v_h_jnA', 'UCYwVxWpjeKFWwu8TML-Te9A','UC554eY5jNUfDq3yDOJYirOQ'];
 
 const lastVideoIds = {};
+
 
 function getLatestVideo(channelId) {
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=date&type=video&key=${youtubeApiKey}`;
@@ -21,6 +22,7 @@ function getLatestVideo(channelId) {
         return null;
       });
 }
+
   
 function sendLatestVideo(ctx, channelId) {
     getLatestVideo(channelId)
@@ -35,11 +37,13 @@ function sendLatestVideo(ctx, channelId) {
       });
 }
   
+
 function checkForNewVideos() {
     channelIds.forEach(channelId => {
       sendLatestVideo(bot.telegram, channelId);
     });
 }
+
 
 bot.start((ctx) => {
     ctx.reply("the bot has started")
@@ -49,8 +53,10 @@ bot.help((ctx) => {
     ctx.reply("This bot can perform the following commands \n - /start\n - /help\n /say_crowbcat will post the latest video of Crowbcat's youtube channel\n  /say_jcs will post the latest video of JCS Psychology's youtube channel.\n /say_destiny will post the latest video of Destiny's youtube channel")
 })
 
-// Set up a timer to check for new videos every 5 minutes (adjust as needed)
-setInterval(checkForNewVideos, 5 * 60 * 1000);
+
+// Set up a timer to check for new videos every 5 minutes
+setInterval(checkForNewVideos, 60000);
+
 
 // Command to get the latest video for Crowbcat
 bot.command('say_crowbcat', (ctx) => {
