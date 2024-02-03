@@ -46,7 +46,7 @@ bot.start((ctx) => {
 })
 
 bot.help((ctx) => {
-    ctx.reply("This bot can perform the following commands \n - /start\n - /help\n and it can also notify when david is being called and acknowledges your sticker\n /say_crowbcat will post the latest video of Crowbcat's youtube channel\n  /say_jcs will post the latest video of JCS Psychology's youtube channel.\n /say_destiny will post the latest video of Destiny's youtube channel")
+    ctx.reply("This bot can perform the following commands \n - /start\n - /help\n /say_crowbcat will post the latest video of Crowbcat's youtube channel\n  /say_jcs will post the latest video of JCS Psychology's youtube channel.\n /say_destiny will post the latest video of Destiny's youtube channel")
 })
 
 // Set up a timer to check for new videos every 5 minutes (adjust as needed)
