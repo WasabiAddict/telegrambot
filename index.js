@@ -11,7 +11,6 @@ const lastVideoIds = {};
 
 function getLatestVideo(channelId) {
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=date&type=video&key=${youtubeApiKey}`;
-  
     return axios.get(apiUrl)
       .then(response => {
         const videoId = response.data.items[0].id.videoId;
