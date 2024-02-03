@@ -49,14 +49,6 @@ bot.help((ctx) => {
     ctx.reply("This bot can perform the following commands \n - /start\n - /help\n and it can also notify when david is being called and acknowledges your sticker\n /say_crowbcat will post the latest video of Crowbcat's youtube channel\n  /say_jcs will post the latest video of JCS Psychology's youtube channel.\n /say_destiny will post the latest video of Destiny's youtube channel")
 })
 
-bot.on('sticker',(ctx) => {
-    ctx.reply('Cool Sticker')
-})
-
-bot.hears('david', (ctx) => {
-    ctx.reply("David, your name is being called")
-})
-
 // Set up a timer to check for new videos every 5 minutes (adjust as needed)
 setInterval(checkForNewVideos, 5 * 60 * 1000);
 
